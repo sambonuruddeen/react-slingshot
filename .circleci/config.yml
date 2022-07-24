@@ -4,17 +4,23 @@ jobs:
   build:
     docker:
       - image: cimg/node:18.4.0
+    working_directory: ~/
     steps:
+      - checkout
       - run: npm run lint
   test:
     docker:
       - image: cimg/node:18.4.0
+    working_directory: ~/
     steps:
+      - checkout
       - run: npm run test
   analyse:
     docker:
       - image: cimg/node:18.4.0
+    working_directory: ~/
     steps:
+      - checkout
       - run: npm analyse
 
 workflows:
