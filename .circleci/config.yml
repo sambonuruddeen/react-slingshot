@@ -11,17 +11,19 @@ jobs:
       - run: npm run lint
   test:
     docker:
-      - image: cimg/node:18.4.0
-    working_directory: ~/react-slingshot
+      - image: circleci/node:13.8.0
+    #working_directory: ~/react-slingshot
     steps:
       - checkout
+      - run: npm i
       - run: npm run test
   analyse:
     docker:
-      - image: cimg/node:18.4.0
-    working_directory: ~/react-slingshot
+      - image: circleci/node:13.8.0
+    #working_directory: ~/react-slingshot
     steps:
       - checkout
+      - run: npm i
       - run: npm analyse
 
 workflows:
